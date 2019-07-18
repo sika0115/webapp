@@ -46,17 +46,18 @@ public class k3_1 extends HttpServlet {
 		   }
 		}
 	//	out.println("<div style=display:inline-flex>");
-		out.println("<form><input type=\"text\" name=\"number1\" size=2>");
+
 		out.println("<form action=\"/webapps/sk16100.k3_2\" method=\"GET\">");
+		out.println("<input type=\"text\" name=\"number1\" size=2>");
 		out.println("<select name=\"operator\">");
 		out.println("<option value=\"1\">+");
 		out.println("<option value=\"2\">-");
 		out.println("<option value=\"3\">*");
 		out.println("<option value=\"4\">/</select>");
-		out.println("<input type=\"text\" name=\"number2\" size=2></form>");
+		out.println("<input type=\"text\" name=\"number2\" size=2><br>");
 	//	out.println("<div style=display:inline-flex>");
-		out.println("<form><input type=\"submit\" value=\"送信\">");
-		out.println("<form><input type=\"reset\" value=\"クリア\"></form>");
+		out.println("<input type=\"submit\" value=\"送信\">");
+		out.println("<input type=\"reset\" value=\"クリア\"></form>");
 		
 		
 
