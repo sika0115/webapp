@@ -47,9 +47,9 @@ public class k3_1 extends HttpServlet {
 		
 		out.println("<form action=\"/webapps/sk16100.k3_2\" method=\"GET\">");
 		if (cookies != null) {
-		   out.println("<input type=\"text\" name=\"number1\" value=" + num1 + " size=2>");
+		   out.println("<input type=\"text\" name=\"number1\" size=5 value=" + num1+ " >");
 		} else {
-		   out.println("<input type=\"text\" name=\"number1\" size=2>");
+		   out.println("<input type=\"text\" name=\"number1\" size=5>");
 		}
 		
 		out.println("<select name=\"operator\">");
@@ -75,9 +75,9 @@ public class k3_1 extends HttpServlet {
 		}
 		
 		if (cookies != null) {
-		   out.println("<input type=\"text\" name=\"number2\" value=" + num2 + " size=2><br>");
+		   out.println("<input type=\"text\" name=\"number2\" size=5 value=" + num2 + " ><br>");
 		} else {
-		   out.println("<input type=\"text\" name=\"number2\" size=2><br>");
+		   out.println("<input type=\"text\" name=\"number2\" size=5><br>");
 		}
 		out.println("<input type=\"submit\" value=\"送信\">");
 		out.println("</form>");
