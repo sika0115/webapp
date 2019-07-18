@@ -29,8 +29,14 @@ public class k3_2 extends HttpServlet {
 		String strnum1 = request.getParameter("number1");
 		String strnum2 = request.getParameter("number2");
 		
+		Cookie cookie1 = new Cookie("cnum1",strnum1 );
+		response.addCookie(cookie1);
+	
+		Cookie cookie2 = new Cookie("cnum2", strnum2);
+		response.addCookie(cookie2);
+		
 		//空欄の判定と文字列であるかどうかの判定
-		if (strnum1.isEmpty()) {
+		if (strnum1.equals("") == true) {
 			strnum1 = "1";
 		}
 		for (int i=0; i<strnum1.length(); i++) {
@@ -41,8 +47,8 @@ public class k3_2 extends HttpServlet {
 		   }
 		}
 		
-		if (strnum2.isEmpty()) {
-			strnum1 = "1";
+		if (strnum2.equals("") == true) {
+			strnum2 = "1";
 		}
 		for (int i=0; i<strnum2.length(); i++) {
 		   if (Character.isDigit(strnum2.charAt(i))) {
@@ -64,30 +70,27 @@ public class k3_2 extends HttpServlet {
 		if (optionnum == 1) {
 			result = num1 + num2;
 			out.println("<h1>("+ num1 + ")+(" + num2 + ")=" + result +"</h1>");
+			Cookie cookie3 = new Cookie("ope", "1");
+			response.addCookie(cookie3);
 		}
 		if (optionnum == 2) {
 			result = num1 - num2;
 			out.println("<h1>("+ num1 + ")-(" + num2 + ")=" + result +"</h1>");
+			Cookie cookie3 = new Cookie("ope", "2");
+			response.addCookie(cookie3);
 		}
 		if (optionnum == 3) {
 			result = num1 * num2;
 			out.println("<h1>("+ num1 + ")*(" + num2 + ")=" + result +"</h1>");
+			Cookie cookie3 = new Cookie("ope", "3");
+			response.addCookie(cookie3);
 		}
 		if (optionnum == 4) {
 			result = num1 / num2;
 			out.println("<h1>("+ num1 + ")/(" + num2 + ")=" + result +"</h1>");
-		} 
-		
-	
-		//String cnum1 = URLEncoder.encode(number1,"utf-8");
-		Cookie cookie1 = new Cookie("cnum1",strnum1 );
-		response.addCookie(cookie1);
-	
-		//String cnum2 = URLEncoder.encode(number2,"utf-8");
-		Cookie cookie2 = new Cookie("cnum2", strnum2);
-		response.addCookie(cookie2);
-		
-		
+			Cookie cookie3 = new Cookie("ope", "4");
+			response.addCookie(cookie3);
+		} 	
 		
 		out.println("<hr>");
 		out.println("<form action=\"/webapps/sk16100.k3_1\" method=\"GET\">");

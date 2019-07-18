@@ -25,42 +25,63 @@ public class k3_1 extends HttpServlet {
 		out.println("二つの数値と演算子を指定してください<br>");
 
 		// この部分を完成させる
-		Cookie [] cookies1= request.getCookies();
-		if (cookies1 != null) {
-		   for(int i=0; i<cookies1.length; i++) {
-		   	String str = cookies1[i].getName();
-		   	if (str.equals("number1")) {
-		   		String value = cookies1[i].getValue();
-		   		out.println(value);
+		String num1 = null;
+		String num2 = null;
+		String opestr = null;
+		
+		Cookie [] cookies= request.getCookies();
+		if (cookies != null) {
+		   for(int i=0; i<cookies.length; i++) {
+		   	String str = cookies[i].getName();
+		   	if (str.equals("cnum1")) {
+		   		num1 = cookies[i].getValue();
+		   	}
+		   	if (str.equals("cnum2")) {
+		   		num2 = cookies[i].getValue();
+		   	}
+		   	if (str.equals("ope")) {
+		   		opestr = cookies[i].getValue();
 		   	}
 		   }
 		}
-		Cookie [] cookies2= request.getCookies();
-		if (cookies2 != null) {
-		   for(int i=0; i<cookies2.length; i++) {
-		   	String str = cookies2[i].getName();
-		   	if (str.equals("number1")) {
-		   		String value = cookies2[i].getValue();
-		   		out.println(value);
-		   	}
-		   }
-		}
-	//	out.println("<div style=display:inline-flex>");
-
+		
 		out.println("<form action=\"/webapps/sk16100.k3_2\" method=\"GET\">");
-		out.println("<input type=\"text\" name=\"number1\" size=2>");
+		if (cookies != null) {
+		   out.println("<input type=\"text\" name=\"number1\" value=" + num1 + " size=2>");
+		} else {
+		   out.println("<input type=\"text\" name=\"number1\" size=2>");
+		}
+		
 		out.println("<select name=\"operator\">");
-		out.println("<option value=\"1\">+");
-		out.println("<option value=\"2\">-");
-		out.println("<option value=\"3\">*");
-		out.println("<option value=\"4\">/</select>");
-		out.println("<input type=\"text\" name=\"number2\" size=2><br>");
-	//	out.println("<div style=display:inline-flex>");
+		if (cookies != null && opestr.equals("1")) {
+		   out.println("<option value=\"1\"selected>+");
+		} else {
+		   out.println("<option value=\"1\">+");
+		}
+		if (cookies != null && opestr.equals("2")) {
+		   out.println("<option value=\"2\"selected>-");
+		} else {
+		   out.println("<option value=\"2\">-");
+		}
+		if (cookies != null && opestr.equals("3")) {
+		   out.println("<option value=\"3\"selected>*");
+		} else {
+		   out.println("<option value=\"3\">*");
+		}
+		if (cookies != null && opestr.equals("4")) {
+		   out.println("<option value=\"4\"selected>/");
+		} else {
+		   out.println("<option value=\"4\">/");
+		}
+		
+		if (cookies != null) {
+		   out.println("<input type=\"text\" name=\"number2\" value=" + num2 + " size=2><br>");
+		} else {
+		   out.println("<input type=\"text\" name=\"number2\" size=2><br>");
+		}
 		out.println("<input type=\"submit\" value=\"送信\">");
-		out.println("<input type=\"reset\" value=\"クリア\"></form>");
+		out.println("</form>");
 		
-		
-
 		out.println("<hr>");
 		out.println("No.19　庄司 果鈴<br>");
 		out.println("</body></html>");
