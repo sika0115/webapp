@@ -36,7 +36,7 @@ public class k3_2 extends HttpServlet {
 		response.addCookie(cookie2);
 		
 		//空欄の判定と文字列であるかどうかの判定
-		if (strnum1.equals("") == true) {
+	/*	if (strnum1.equals("") == true) {
 			strnum1 = "1";
 		}
 		for (int i=0; i<strnum1.length(); i++) {
@@ -56,11 +56,26 @@ public class k3_2 extends HttpServlet {
 		   } else {
 		   	strnum2 = "1";
 		   }
-		}
+		}*/
 		
 		//double型変換
-		double num1 = Double.parseDouble(strnum1);
-		double num2 = Double.parseDouble(strnum2);
+		double num1 = 0;
+		double num2 = 0;
+
+		try {
+			num1 = Double.parseDouble(strnum1);
+		}
+		catch( NumberFormatException e ) {
+			num1 = 1;
+		}
+
+		try {
+			num2 = Double.parseDouble(strnum2);
+		}
+		catch( NumberFormatException e ) { 
+			num2 = 1;
+		}
+		
 		
 		String optionstr = request.getParameter("operator");
 		int optionnum = Integer.parseInt(optionstr);
